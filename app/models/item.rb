@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_day
 
   has_one_attached :image
-  
+
   validates :product_name, presence: true
   validates :product_description, presence: true
   validates :image, presence: true
@@ -28,7 +28,5 @@ class Item < ApplicationRecord
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :delivery_day_id, numericality: { other_than: 1, message: "can't be blank" }
 
-
-  validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
-                    
+  validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 end
