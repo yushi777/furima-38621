@@ -1,11 +1,14 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @order_form = OrderForm.new 
+    @item = Item.find(params[:item_id])
   end
 
   def create
     @order_form = OrderForm.new(order_params)
-
+    @item = Item.find(params[:item_id])
     if @order_form.valid?
       @order_form.save
       return redirect_to root_path
@@ -19,5 +22,7 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order_form).permit(:postal_code, :prefecture_id, :municipalities, :address, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
+
+ 
 
 end
