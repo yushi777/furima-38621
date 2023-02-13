@@ -10,6 +10,7 @@ class OrderForm
   validates :municipalities, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
+  validates :token, presence: true
   # validates :token, presence: true
 
 
