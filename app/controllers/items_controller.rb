@@ -23,10 +23,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if
-      @item.user_id == current_user.id && @item.order.nil?
+    if @item.user_id == current_user.id && @item.order.nil?
     else
-     redirect_to root_path
+      redirect_to root_path
     end
   end
 
@@ -40,13 +39,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if
-    @item.user_id == current_user.id
-    @item.destroy
-    redirect_to root_path
-  else
-    redirect_to root_path
-  end
+    if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   private
@@ -59,5 +57,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
