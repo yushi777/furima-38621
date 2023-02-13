@@ -90,7 +90,7 @@ RSpec.describe OrderForm, type: :model do
         expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
       it 'phone_numberが12桁以上あると保存できない' do
-        @order_form.phone_number = 183_234_234_2334
+        @order_form.phone_number = 1_832_342_342_334
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
