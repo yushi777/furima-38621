@@ -7,7 +7,6 @@ const pay = () => {
 
   numberElement.mount('#card-number');
   expiryElement.mount('#card-exp-month');
-  // expiryElement.mount('#card-exp-year');
   cvcElement.mount('#card-cvc');
 
   const submit = document.getElementById("button");
