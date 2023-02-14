@@ -6,10 +6,10 @@ class OrderForm
   validates :user_id, presence: true
   validates :item_id, presence: true
   validates :postal_code, presence: true, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-  validates :prefecture_id, presence: true
+  validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :municipalities, presence: true
   validates :address, presence: true
-  validates :phone_number, presence: true, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
+  validates :phone_number, presence: true, format: { with: /\A[0-9]{10,11}\z/, message: 'is invalid' }
   validates :token, presence: true
   # validates :token, presence: true
 
