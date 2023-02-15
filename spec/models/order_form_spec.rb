@@ -2,14 +2,13 @@ require 'rails_helper'
 
 RSpec.describe OrderForm, type: :model do
   describe '配送先情報の保存' do
-   before do
-    @user = FactoryBot.create(:user)
-    @item = FactoryBot.create(:item)
-    @order_form = FactoryBot.build(:order_form, user_id: @user.id, item_id: @item.id)
-    sleep(1)
-   end
+    before do
+      @user = FactoryBot.create(:user)
+      @item = FactoryBot.create(:item)
+      @order_form = FactoryBot.build(:order_form, user_id: @user.id, item_id: @item.id)
+      sleep(1)
+    end
 
-  
     context '配送先情報が保存されるとき' do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@order_form).to be_valid
