@@ -88,7 +88,7 @@ RSpec.describe OrderForm, type: :model do
         expect(@order_form.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberに-があると保存できない' do
-        @order_form.phone_number = 183 - 1312 - 1123
+        @order_form.phone_number = '183 - 1312 - 1123'
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
