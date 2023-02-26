@@ -32,4 +32,4 @@ namespace :deploy do
   end
 end
 
-set :branch, "main"　#追記
+set :branch, "main"
